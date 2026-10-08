@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: black;
+            color: white;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin-top: 50px;
+        }
+
+        .team {
+            width: 250px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 15px;
+        }
+
+        .score {
+            font-size: 100px;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .reset {
+            margin-top: 30px;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏀 BASKETBALL SCOREBOARD</h1>
+
+    <div class="scoreboard">
+
+        <!-- Team A -->
+        <div class="team">
+
+            <h2>TEAM A</h2>
+
+            <div id="show" class="score">0</div>
+
+            <button onclick="a1()">+1</button>
+            <button onclick="a2()">+2</button>
+            <button onclick="a3()">+3</button>
+            <br>
+            <button onclick="aMinus()">-1</button>
+
+        </div>
+
+
+        <div class="team">
+
+            <h2>TEAM B</h2>
+
+            <div id="ans" class="score">0</div>
+
+            <button onclick="b1()">+1</button>
+            <button onclick="b2()">+2</button>
+            <button onclick="b3()">+3</button>
+            <br>
+            <button onclick="bMinus()">-1</button>
+
+        </div>
+
+    </div>
+
+    <button class="reset" onclick="result()">
+        RESET
+    </button>
+
+
+    <script>
+        function check(){ // ถ้าทีมใดมีคะแนน 15 คะแนนก่อนให้ แสดง alert ว่าทีมนั้นชนะ
+            if(x==15||y==15){
+                alert("Team A win")
+
+                alert("Team B win")
+            }
+        }
+        
+
+        let x = 0;
+        let y = 0;
+
+
+        // =================
+        // TEAM A
+        // =================
+
+        function a1() {
+            x++;
+            show();
+        }
+
+        function a2() {
+            x += 2;
+            show();
+        }
+
+        function a3() {
+            x += 3;
+            show();
+        }
+
+        function aMinus() {
+
+            if (x > 0) {
+                x--;
+            }
+
+            show();
+        }
+
+
+        // =================
+        // TEAM B
+        // =================
+
+        function b1() {
+            y++;
+            ans();
+        }
+
+        function b2() {
+            y += 2;
+            ans();
+        }
+
+        function b3() {
+            y += 3;
+            ans();
+        }
+
+        function bMinus() {
+
+            if (y > 0) {
+                y--;
+            }
+
+            ans();
+        }
+
+
+        // =================
+        // แสดงคะแนน
+        // =================
+
+        function show() {
+            document.getElementById("show").innerHTML = x;
+        }
+
+        function ans() {
+            document.getElementById("ans").innerHTML = y;
+        }
+
+
+        // =================
+        // RESET
+        // =================
+
+        function result() {
+
+            x = 0;
+            y = 0;
+
+            show();
+            ans();
+
+        }
+
+    </script>
+
+</body>
+</html>
